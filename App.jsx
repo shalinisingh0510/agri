@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Advisor from "./Advisor";
 import How from "./How";
+import Home from "./Home";
 import GoogleTranslate from "./GoogleTranslate";
 import {
   FaHome,
@@ -13,6 +14,7 @@ import {
   FaTimes,
   FaVolumeMute,
   FaVolumeUp,
+  FaSeedling,
 } from "react-icons/fa";
 
 function App() {
@@ -163,34 +165,7 @@ function App() {
 
         {/* Routes */}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <header className="hero">
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="background-video"
-                >
-                  <source src="agri.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-
-                <button id="muteToggle" onClick={handleMuteToggle}>
-                  {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-                </button>
-
-                <div className="overlay">
-                  <h1 className="fade-in">AI-Powered Agricultural Advisor</h1>
-                  <p className="sub">Empowering Farmers with AI, Anywhere, Anytime</p>
-                  
-                </div>
-              </header>
-            }
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/advisor" element={<Advisor />} />
           <Route path="/how-it-works" element={<How />} />
 
