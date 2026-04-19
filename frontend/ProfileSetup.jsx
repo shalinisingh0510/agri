@@ -111,15 +111,15 @@ const ProfileSetup = () => {
     try {
       const user = auth?.currentUser;
       if (user) {
-        const { doc, updateDoc } = await import("firebase/firestore");
-        await updateDoc(doc(db, "users", user.uid), {
+        const { doc, setDoc } = await import("firebase/firestore");
+        await setDoc(doc(db, "users", user.uid), {
           displayName: name,
           language: language,
           cropType: cropType,
           location: location,
           address: address,
           profileCompleted: true,
-        });
+        }, { merge: true });
         navigate("/");
       }
     } catch (err) {
